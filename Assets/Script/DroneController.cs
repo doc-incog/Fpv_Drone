@@ -4,18 +4,17 @@ using UnityEngine.InputSystem;
 public class DroneController : MonoBehaviour
 {
     [Header("Flight Characteristics")]
-    [SerializeField] private float throttleStrength = 35f;
+    public float throttleStrength = 35f;
     [SerializeField] private float minThrottleForce = 6f;
-    [SerializeField] private float throttleExpo = 0.5f;
 
     [Header("Rates (deg/s at full stick)")]
-    [SerializeField] private float rcRate = 1.0f;
+    public float rcRate = 1.0f;
     [SerializeField] private float superRate = 0.7f;
-    [SerializeField] private float expo = 0.3f;
+    public float expo = 0.3f;
 
-    [SerializeField] private float maxPitchRate = 600f;
-    [SerializeField] private float maxRollRate = 600f;
-    [SerializeField] private float maxYawRate = 300f;
+    public float maxPitchRate = 600f;
+    public float maxRollRate = 600f;
+    public float maxYawRate = 300f;
 
     [Header("Airmode")]
     [SerializeField] private bool airmodeEnabled = true;
@@ -27,16 +26,16 @@ public class DroneController : MonoBehaviour
     [SerializeField] private float propIdleRPM = 400f;
 
     [Header("Camera")]
-    [SerializeField] private Transform cameraTarget;
-    [SerializeField] private float cameraSmoothTime = 0.04f;
+    public Transform cameraTarget;
+    public float cameraSmoothTime = 0.04f;
 
     [Header("Respawn")]
     [SerializeField] private Vector3 respawnPosition = new Vector3(0f, 0.101f, 0f);
 
     [Header("Auto-Flip Recovery")]
     [SerializeField] private bool autoFlipEnabled = true;
-    [SerializeField] private float flipDuration = 0.8f;         // How long the flip takes
-    [SerializeField] private float flipHeightThreshold = 0.101f; // Y position to trigger flip
+    [SerializeField] private float flipDuration = 0.8f;
+    [SerializeField] private float flipHeightThreshold = 0.101f;
 
     // Input Actions
     private InputAction throttleAction;
@@ -45,7 +44,7 @@ public class DroneController : MonoBehaviour
     private InputAction yawAction;
     private InputAction respawnAction;
 
-    private float throttleInput;
+    public float throttleInput;
     private float pitchInput;
     private float rollInput;
     private float yawInput;

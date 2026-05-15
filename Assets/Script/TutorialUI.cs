@@ -6,7 +6,7 @@ public class TutorialUI : MonoBehaviour
 {
     private Canvas canvas;
     private GameObject panel;
-    private float displayTime = 8f;
+    private float displayTime = 10f;
     private float timer;
 
     void Start()
@@ -60,18 +60,18 @@ public class TutorialUI : MonoBehaviour
         rt.anchorMax = new Vector2(0.5f, 0.5f);
         rt.pivot = new Vector2(0.5f, 0.5f);
         rt.anchoredPosition = new Vector2(0, -150);
-        rt.sizeDelta = new Vector2(600, 250);
+        rt.sizeDelta = new Vector2(700, 300);
 
         Image bg = panel.AddComponent<Image>();
         bg.color = new Color(0, 0, 0, 0.7f);
 
-        AddLine("CONTROLS", 50, 80, 36, FontStyles.Bold);
-        AddLine("Left Stick: Throttle (up/down) / Yaw (left/right)", 0, 30, 22, FontStyles.Normal);
-        AddLine("Right Stick: Pitch (up/down) / Roll (left/right)", 0, -5, 22, FontStyles.Normal);
-        AddLine("A/B Button: Respawn    |    Tab: Switch Drone", 0, -40, 20, FontStyles.Normal);
-        AddLine("Y/Triangle: Toggle FPV |    ESC: Pause/Settings", 0, -65, 20, FontStyles.Normal);
-        AddLine("L: Leaderboard    |    Fly through gates to race!", 0, -90, 20, FontStyles.Normal);
-        AddLine("Press any key to dismiss", 0, -130, 18, FontStyles.Italic);
+        AddLine("CONTROLS", 0, 120, 36, FontStyles.Bold);
+        AddLine("Left Stick: Throttle (up/down) / Yaw (left/right)", 0, 80, 22, FontStyles.Normal);
+        AddLine("Right Stick: Pitch (up/down) / Roll (left/right)", 0, 50, 22, FontStyles.Normal);
+        AddLine("A Button: Respawn    |    Tab: Switch Drone", 0, 15, 20, FontStyles.Normal);
+        AddLine("LB / Y: Toggle FPV Camera    |    RB / ESC: Pause Menu", 0, -15, 20, FontStyles.Normal);
+        AddLine("L: Leaderboard    |    Fly through rings to race!", 0, -45, 20, FontStyles.Normal);
+        AddLine("Press any key to dismiss", 0, -90, 18, FontStyles.Italic);
     }
 
     private void AddLine(string text, float x, float y, float size, FontStyles style)
@@ -84,7 +84,7 @@ public class TutorialUI : MonoBehaviour
         rt.anchorMax = new Vector2(0.5f, 0.5f);
         rt.pivot = new Vector2(0.5f, 0.5f);
         rt.anchoredPosition = new Vector2(x, y);
-        rt.sizeDelta = new Vector2(550, 30);
+        rt.sizeDelta = new Vector2(650, 30);
 
         TextMeshProUGUI tmp = go.AddComponent<TextMeshProUGUI>();
         tmp.text = text;

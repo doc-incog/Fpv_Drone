@@ -1,12 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class FPVController : MonoBehaviour
 {
     [Header("Camera Modes")]
     public bool fpvMode = false;
     public KeyCode toggleKey = KeyCode.Y;
+
+    private InputAction fpvToggleAction;
 
     [Header("References")]
     public Transform thirdPersonTarget;
@@ -27,6 +30,23 @@ public class FPVController : MonoBehaviour
     private Vector3 thirdPersonOffset;
     private DroneController drone;
     private BatteryController battery;
+
+    void Awake()
+    {
+        fpvToggleAction = new InputAction("FPVToggle", binding: "<Gamepad>/leftShoulder");
+    }
+
+    void OnEnable()
+    {
+        fpvToggleAction.Enable();
+        fpvToggleAction.performed += OnFPVInput;
+    }
+
+    void OnDisable()
+    {
+        fpvToggleAction.Disable();
+        fpvToggleAction.performed -= OnFPVInput;
+    }
 
     void Start()
     {
@@ -55,13 +75,18 @@ public class FPVController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(toggleKey) || Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(toggleKey))
         {
             ToggleFPV();
         }
 
         if (fpvMode)
             UpdateOSD();
+    }
+
+    private void OnFPVInput(InputAction.CallbackContext context)
+    {
+        ToggleFPV();
     }
 
     public void ToggleFPV()

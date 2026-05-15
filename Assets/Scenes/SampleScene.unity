@@ -324,9 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBattery: 100
-  drainRate: 8
-  idleDrainRate: 0.5
-  rechargeRate: 50
+  drainRate: 0.1
+  idleDrainRate: 0.1
+  rechargeRate: 100
   lowBatteryThreshold: 20
   currentBattery: 0
   isCharging: 0
@@ -858,15 +858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 713
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalRotation.w

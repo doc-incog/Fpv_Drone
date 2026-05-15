@@ -324,10 +324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBattery: 100
-  drainRate: 8
-  idleDrainRate: 0.5
-  rechargeRate: 50
-  lowBatteryThreshold: 20
+  drainRate: 0.2
+  idleDrainRate: 0.2
+  rechargeRate: 1000
+  lowBatteryThreshold: 200
   currentBattery: 0
   isCharging: 0
 --- !u!114 &42000013
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee88fa65e490ef4185dd1ce0022771e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throttleStrength: 35
+  throttleStrength: 50
   minThrottleForce: 6
   rcRate: 1
   superRate: 0.7
@@ -858,15 +858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44
+      value: 5600.87
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 713
+      value: 602
       objectReference: {fileID: 0}
     - target: {fileID: 4000012611177122, guid: f5344c194bab9264c93ba5f2f38dab9e, type: 3}
       propertyPath: m_LocalRotation.w

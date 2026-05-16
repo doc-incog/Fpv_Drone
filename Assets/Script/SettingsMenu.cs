@@ -60,9 +60,12 @@ public class SettingsMenu : MonoBehaviour
         if (drone != null)
         {
             drone.expo = PlayerPrefs.GetFloat("throttle_expo", 0.3f);
-            drone.cameraSmoothTime = PlayerPrefs.GetFloat("cam_smooth", 0.04f);
             drone.rcRate = PlayerPrefs.GetFloat("sensitivity", 1f);
         }
+
+        ThirdPersonCamera tpcam = FindFirstObjectByType<ThirdPersonCamera>();
+        if (tpcam != null)
+            tpcam.smoothTime = PlayerPrefs.GetFloat("cam_smooth", 0.04f);
 
         FPVController fpv = FindFirstObjectByType<FPVController>();
         if (fpv != null) fpv.SetFOV(PlayerPrefs.GetFloat("fpv_fov", 80f));

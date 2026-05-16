@@ -62,7 +62,6 @@ public class FPVController : MonoBehaviour
 
         if (fpvCamera != null)
         {
-            fpvCamera.enabled = false;
             fpvCamera.fieldOfView = PlayerPrefs.GetFloat("fpv_fov", defaultFOV);
         }
 
@@ -93,20 +92,23 @@ public class FPVController : MonoBehaviour
     {
         fpvMode = !fpvMode;
 
-        if (fpvCamera != null)
-            fpvCamera.enabled = fpvMode;
-
         Camera mainCam = Camera.main;
         if (mainCam != null)
         {
-            mainCam.enabled = !fpvMode;
+            ThirdPersonCamera tpcam = mainCam.GetComponent<ThirdPersonCamera>();
 
-            if (fpvMode && fpvCamera != null)
+            if (fpvMode)
             {
-                fpvCamera.fieldOfView = PlayerPrefs.GetFloat("fpv_fov", defaultFOV);
-                fpvCamera.transform.SetParent(fpvTarget != null ? fpvTarget : transform);
-                fpvCamera.transform.localPosition = Vector3.zero;
-                fpvCamera.transform.localRotation = Quaternion.identity;
+                if (tpcam != null) tpcam.enabled = false;
+                mainCam.transform.SetParent(fpvTarget != null ? fpvTarget : transform);
+                mainCam.transform.localPosition = Vector3.zero;
+                mainCam.transform.localRotation = Quaternion.identity;
+                mainCam.fieldOfView = PlayerPrefs.GetFloat("fpv_fov", defaultFOV);
+            }
+            else
+            {
+                mainCam.transform.SetParent(null);
+                if (tpcam != null) tpcam.enabled = true;
             }
         }
 

@@ -25,7 +25,6 @@ public class DroneController : MonoBehaviour
     [SerializeField] private float propMaxRPM = 3000f;
     [SerializeField] private float propIdleRPM = 400f;
 
-    [Header("Camera")]
     public Transform cameraTarget;
     public float cameraSmoothTime = 0.04f;
 
@@ -50,7 +49,6 @@ public class DroneController : MonoBehaviour
     private float yawInput;
 
     private Rigidbody rb;
-    private Vector3 cameraVelocity;
 
     // Auto-flip state
     private bool isFlipping = false;
@@ -141,7 +139,6 @@ public class DroneController : MonoBehaviour
             ApplyCustomDrag();
         }
 
-        UpdateCameraFollow();
     }
 
     private void ApplyThrottle()
@@ -219,20 +216,6 @@ public class DroneController : MonoBehaviour
         {
             if (prop != null)
                 prop.transform.Rotate(Vector3.forward * rpm * Time.deltaTime);
-        }
-    }
-
-    private void UpdateCameraFollow()
-    {
-        if (cameraTarget != null && Camera.main != null)
-        {
-            Camera.main.transform.position = Vector3.SmoothDamp(
-                Camera.main.transform.position,
-                cameraTarget.position,
-                ref cameraVelocity,
-                cameraSmoothTime
-            );
-            Camera.main.transform.rotation = cameraTarget.rotation;
         }
     }
 
